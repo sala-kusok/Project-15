@@ -1,0 +1,78 @@
+@import "variables";
+@import "mixins";
+
+//-----===== Базовые настройки ====-----//
+
+body {
+  background: $background-body;
+  color: $color-body;
+  font-weight: $font-weight-body;
+  font-size: $font-size-body;
+  font-family: $font-family-body;
+  line-height: $line-height-body;
+}
+
+a{
+  color: $color-visited-link;
+
+  &:visited{
+    color: $color-visited-link;
+    text-decoration: underline;
+  }
+
+  &:hover{
+    color: $color-hover-link;
+    text-decoration:none;
+  }
+
+  &:focus, &:active{
+    color: $color-focus-active-link;
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight:normal;
+}
+
+img{
+  max-width:100%;
+}
+
+//-----===== Служебные класы - начало ====-----//
+
+// скрывает блок
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0,0,0,0);
+  overflow: hidden;
+}
+
+// отменяет обтекания блока
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+//-----===== Служебные класы - конец ====-----//
+
+
+//-----===== Общие стили - начало ====-----//
+
+.container{
+  @include mix-min-max($viewport-min, $viewport-container);
+}
+
+.wrapper{
+  @include mix-min-max($viewport-min, $viewport-max, 15px);
+}
+
+//-----===== Общие стили - конец ====-----//
